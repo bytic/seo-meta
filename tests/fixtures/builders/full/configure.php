@@ -11,6 +11,7 @@ $manager->robots('index,follow');
 $manager->author('GS');
 $manager->description('GS');
 $manager->keywords('GS,ByTIC');
+$manager->addKeywords('PHP');
 
 $manager->og('title', 'The title');
 $manager->og('type', 'website');

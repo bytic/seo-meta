@@ -7,6 +7,7 @@ $manager = new MetaManager();
 $manager->setTitleBase('base');
 $manager->appendTitle('page');
 
+$manager->robots('index,follow');
 $manager->author('GS');
 $manager->description('GS');
 $manager->keywords('GS,ByTIC');
@@ -18,4 +19,8 @@ $manager->og('image', 'https://gabrielsolomon.ro/logo.jpg');
 
 $manager->twitter('card', 'summary');
 $manager->twitter('site', '@solomongaby');
+
+$manager->link('canonical', 'https://gabrielsolomon.ro');
+$manager->link('alternate', ['hreflang' => 'en',  'href' => 'https://en.pedroborg.es']);
+
 return $manager;

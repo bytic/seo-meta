@@ -33,6 +33,24 @@ class TagFactory
         return $tag;
     }
 
+    public static function link($key, $value): MetaTag
+    {
+        $attributes = ['rel' => $key];
+
+        if (is_array($value)) {
+            foreach ($value as $key => $v) {
+                $attributes[$key] = $v;
+            }
+        } else {
+            $attributes['href'] = $value;
+        }
+
+        $tag = new LinkTag();
+        $tag->setName(md5(serialize($attributes)));
+        $tag->setAttributes($attributes);
+        return $tag;
+    }
+
     public static function title($value): TitleTag
     {
         $tag = new TitleTag();

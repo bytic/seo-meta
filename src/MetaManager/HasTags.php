@@ -39,6 +39,16 @@ trait HasTags
         $this->autoInitTitle()->prependTitle($title);
     }
 
+    public function getFirstTitle()
+    {
+        $this->autoInitTitle()->getFirstTitle();
+    }
+
+    public function robots($value): Tag
+    {
+        return $this->meta('robots', $value);
+    }
+
     public function author($value): Tag
     {
         return $this->meta('author', $value);
@@ -59,14 +69,19 @@ trait HasTags
         return $this->addTag(TagFactory::meta($type, $name, $value));
     }
 
-    public function og(string $name, string $value)
+    public function og(string $name, string $value): Tag
     {
         return $this->addTag(TagFactory::og($name, $value));
     }
 
-    public function twitter(string $name, string $value)
+    public function twitter(string $name, string $value): Tag
     {
         return $this->addTag(TagFactory::twitter($name, $value));
+    }
+
+    public function link(string $key, $value): Tag
+    {
+        return $this->addTag(TagFactory::link($key, $value));
     }
 
     public function tag($name): ?Tag

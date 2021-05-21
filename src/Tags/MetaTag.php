@@ -8,6 +8,8 @@ namespace ByTIC\SeoMeta\Tags;
  */
 class MetaTag extends Tag
 {
+    protected $tag = 'meta';
+
     protected $group = 'meta';
 
     const NAME_TYPE = 'name';
@@ -39,12 +41,17 @@ class MetaTag extends Tag
     protected function generate(): string
     {
         return \ByTIC\Html\Tags\Tag::tag(
-            "meta",
+            $this->tag,
             null,
-            [
-                $this->type => $this->name,
-                'content' => $this->value
-            ]
+            $this->generateAttributes()
         );
+    }
+
+    protected function generateAttributes(): array
+    {
+        return [
+            $this->type => $this->name,
+            'content' => $this->value
+        ];
     }
 }

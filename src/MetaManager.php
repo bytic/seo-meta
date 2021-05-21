@@ -2,7 +2,6 @@
 
 namespace ByTIC\SeoMeta;
 
-
 /**
  * Class SeoMeta
  * @package ByTIC\SeoMeta

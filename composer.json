@@ -12,6 +12,7 @@
     "bytic/html-helpers": "^1.0"
   },
   "require-dev": {
+    "bytic/container": "^1.0",
     "bytic/phpqatools": "^1.0",
     "mockery/mockery": "^1.0"
   },

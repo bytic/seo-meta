@@ -1,6 +1,6 @@
 {
   "name": "bytic/seo-meta",
-  "license": "",
+  "license": "MIT",
   "description": "PHP Framework agnostic SEO Meta generator",
   "authors": [
     {

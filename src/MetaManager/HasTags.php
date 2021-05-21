@@ -49,6 +49,11 @@ trait HasTags
         return $this->meta('description', $value);
     }
 
+    public function keywords($value): Tag
+    {
+        return $this->meta('keywords', $value);
+    }
+
     public function meta($name, $value, $type = MetaTag::NAME_TYPE): Tag
     {
         return $this->addTag(TagFactory::meta($type, $name, $value));

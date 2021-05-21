@@ -9,6 +9,7 @@ $manager->appendTitle('page');
 
 $manager->author('GS');
 $manager->description('GS');
+$manager->keywords('GS,ByTIC');
 
 $manager->og('title', 'The title');
 $manager->og('type', 'website');

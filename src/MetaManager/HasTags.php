@@ -29,6 +29,14 @@ trait HasTags
         return $this->meta('author', $value);
     }
 
+    /**
+     * @deprecated use author
+     */
+    public function authors($value): Tag
+    {
+        return $this->author($value);
+    }
+
     public function description($value): Tag
     {
         return $this->meta('description', $value);

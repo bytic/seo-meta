@@ -7,6 +7,8 @@ $manager = new MetaManager();
 $manager->setTitleBase('base');
 $manager->appendTitle('page');
 
+$manager->viewport()->addResponsive();
+
 $manager->robots('index,follow');
 $manager->author('GS');
 $manager->description('GS');

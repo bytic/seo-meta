@@ -13,4 +13,5 @@ class MetaManager
     use MetaManager\HasKeywords;
     use MetaManager\HasTags;
     use MetaManager\HasTitle;
+    use MetaManager\HasViewport;
 }

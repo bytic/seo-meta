@@ -71,7 +71,7 @@ trait HasTags
     }
 
     /**
-     * @return Tag|\ByTIC\SeoMeta\Tags\TitleTag
+     * @return Tag|\ByTIC\SeoMeta\Tags\ViewportTag
      */
     protected function autoInitTag($name = null, $callback)
     {

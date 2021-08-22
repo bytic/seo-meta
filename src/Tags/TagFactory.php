@@ -51,9 +51,24 @@ class TagFactory
         return $tag;
     }
 
+    /**
+     * @param $value
+     * @return TitleTag
+     */
     public static function title($value): TitleTag
     {
         $tag = new TitleTag();
+        $tag->setValue($value);
+        return $tag;
+    }
+
+    /**
+     * @param $value
+     * @return ViewportTag
+     */
+    public static function viewport($value): ViewportTag
+    {
+        $tag = new ViewportTag();
         $tag->setValue($value);
         return $tag;
     }

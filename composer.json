@@ -1,7 +1,7 @@
 {
   "name": "bytic/seo-meta",
-  "license": "MIT",
   "description": "PHP Framework agnostic SEO Meta generator",
+  "license": "MIT",
   "authors": [
     {
       "name": "Gabriel Solomon",
@@ -9,25 +9,34 @@
     }
   ],
   "require": {
-    "bytic/package-base": "^1.0",
-    "bytic/html-helpers": "^1.0"
+    "bytic/html-helpers": "^1.0",
+    "bytic/package-base": "^1.0"
   },
   "require-dev": {
-    "bytic/container": "^1.0|^2.0",
+    "bytic/container": "^1.0 || ^2.0",
     "bytic/phpqatools": "^1.0",
     "mockery/mockery": "^1.0"
   },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "autoload": {
     "psr-4": {
       "ByTIC\\SeoMeta\\": "src/"
     },
-    "files": [
-    ]
+    "files": []
   },
   "autoload-dev": {
     "psr-4": {
       "ByTIC\\SeoMeta\\Tests\\": "tests/src",
       "ByTIC\\SeoMeta\\Tests\\Fixtures\\": "tests/fixtures"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "phpstan/extension-installer": true,
+      "ergebnis/composer-normalize": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "bytic/phpqatools": true
     }
   }
 }

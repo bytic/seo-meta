@@ -1,14 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\SeoMeta\MetaManager;
 
 use ByTIC\SeoMeta\Tags\MetaTag;
 use ByTIC\SeoMeta\Tags\Tag;
 use ByTIC\SeoMeta\Tags\TagFactory;
+use ByTIC\SeoMeta\Tags\TagInterface;
+use ByTIC\SeoMeta\Tags\ViewportTag;
 
 /**
- * Trait HasTags
- * @package ByTIC\SeoMeta\MetaManager
+ * Trait HasTags.
  */
 trait HasTags
 {
@@ -67,35 +70,29 @@ trait HasTags
         if (!isset($this->tags[$name])) {
             return null;
         }
+
         return $this->tags[$name];
     }
 
     /**
-     * @return Tag|\ByTIC\SeoMeta\Tags\ViewportTag
+     * @return Tag|ViewportTag
      */
-    protected function autoInitTag($name = null, $callback)
+    protected function autoInitTag($name, $callback): ViewportTag|Tag|TagInterface
     {
         if (!isset($this->tags[$name])) {
             $this->addTag($callback());
         }
+
         return $this->tags[$name];
     }
 
-    /**
-     * @param Tag $tag
-     * @return Tag
-     */
     protected function addTag(Tag $tag): Tag
     {
         $this->addToTagsGroup($tag->getGroup(), $tag->getName(), $tag);
+
         return $this->tags[$tag->getName()] = $tag;
     }
 
-    /**
-     * @param $group
-     * @param $key
-     * @param $tag
-     */
     protected function addToTagsGroup($group, $key, $tag)
     {
         $this->tagsGroups[$group][$key] = $tag;

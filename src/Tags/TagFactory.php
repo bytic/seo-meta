@@ -1,10 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\SeoMeta\Tags;
 
 /**
- * Class TagFactory
- * @package ByTIC\SeoMeta\Tags
+ * Class TagFactory.
  */
 class TagFactory
 {
@@ -14,6 +15,7 @@ class TagFactory
         $tag->setType($type);
         $tag->setName($name);
         $tag->setValue($value);
+
         return $tag;
     }
 
@@ -22,6 +24,7 @@ class TagFactory
         $tag = new MetaTag();
         $tag->setName('og:' . $name);
         $tag->setValue($value);
+
         return $tag;
     }
 
@@ -30,6 +33,7 @@ class TagFactory
         $tag = new TwitterTag();
         $tag->setName('twitter:' . $name);
         $tag->setValue($value);
+
         return $tag;
     }
 
@@ -37,9 +41,9 @@ class TagFactory
     {
         $attributes = ['rel' => $key];
 
-        if (is_array($value)) {
-            foreach ($value as $key => $v) {
-                $attributes[$key] = $v;
+        if (\is_array($value)) {
+            foreach ($value as $key => $value) {
+                $attributes[$key] = $value;
             }
         } else {
             $attributes['href'] = $value;
@@ -48,28 +52,23 @@ class TagFactory
         $tag = new LinkTag();
         $tag->setName(md5(serialize($attributes)));
         $tag->setAttributes($attributes);
+
         return $tag;
     }
 
-    /**
-     * @param $value
-     * @return TitleTag
-     */
     public static function title($value): TitleTag
     {
         $tag = new TitleTag();
         $tag->setValue($value);
+
         return $tag;
     }
 
-    /**
-     * @param $value
-     * @return ViewportTag
-     */
     public static function viewport($value): ViewportTag
     {
         $tag = new ViewportTag();
         $tag->setValue($value);
+
         return $tag;
     }
 }

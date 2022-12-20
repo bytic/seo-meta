@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\SeoMeta\MetaManager;
 
 use ByTIC\SeoMeta\Tags\MetaTag;
@@ -7,8 +9,7 @@ use ByTIC\SeoMeta\Tags\Tag;
 use ByTIC\SeoMeta\Tags\TagFactory;
 
 /**
- * Trait HasKeywords
- * @package ByTIC\SeoMeta\MetaManager
+ * Trait HasKeywords.
  */
 trait HasKeywords
 {
@@ -18,14 +19,13 @@ trait HasKeywords
     }
 
     /**
-     * @param $keywords
      * @return $this
      */
     public function addKeywords($keywords)
     {
         $tag = $this->autoInitKeywords();
 
-        if (!is_array($keywords)) {
+        if (!\is_array($keywords)) {
             $keywords = [$keywords];
         }
         $existing = explode(',', $tag->getValue());
@@ -43,7 +43,7 @@ trait HasKeywords
         return $this->autoInitTag(
             'keywords',
             function () {
-                return TagFactory::meta(MetaTag::NAME_TYPE, 'keywords', "");
+                return TagFactory::meta(MetaTag::NAME_TYPE, 'keywords', '');
             }
         );
     }

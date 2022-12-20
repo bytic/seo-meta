@@ -1,18 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\SeoMeta\Tags;
 
 /**
- * Class TitleTag
- * @package ByTIC\SeoMeta\Tags
+ * Class TitleTag.
  */
 class TitleTag extends Tag
 {
     protected $group = 'title';
 
-    protected $name = "title";
+    protected $name = 'title';
 
-    protected $base = "";
+    protected $base = '';
 
     protected $titleComponents = [
         'base' => false,
@@ -20,17 +21,11 @@ class TitleTag extends Tag
         'separator' => ' - ',
     ];
 
-    /**
-     * @return string
-     */
     public function getTitleBase(): string
     {
         return $this->base;
     }
 
-    /**
-     * @param string $base
-     */
     public function setTitleBase(string $base): void
     {
         $this->base = $base;
@@ -38,10 +33,9 @@ class TitleTag extends Tag
     }
 
     /**
-     * @param $title
      * @return $this
      */
-    public function appendTitle($title): TitleTag
+    public function appendTitle($title): self
     {
         $this->titleComponents['elements'][] = $title;
         $this->generateTitle();
@@ -50,10 +44,9 @@ class TitleTag extends Tag
     }
 
     /**
-     * @param $title
      * @return $this
      */
-    public function prependTitle($title): TitleTag
+    public function prependTitle($title): self
     {
         array_unshift($this->titleComponents['elements'], $title);
         $this->generateTitle();
@@ -82,8 +75,8 @@ class TitleTag extends Tag
 
     protected function generate(): string
     {
-        return \ByTIC\Html\Tags\Tag::tag(
-            "title",
+        return (string) \ByTIC\Html\Tags\Tag::tag(
+            'title',
             $this->value
         );
     }

@@ -1,14 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\SeoMeta\MetaManager;
 
 /**
- * Trait HasConfig
- * @package ByTIC\SeoMeta\MetaManager
+ * Trait HasConfig.
  */
 trait HasConfig
 {
-
     /**
      * @var array
      */
@@ -17,7 +17,6 @@ trait HasConfig
     ];
 
     /**
-     * @param $name
      * @return mixed|string|null
      */
     protected function getConfigValue($name)
@@ -25,6 +24,7 @@ trait HasConfig
         if (!isset($this->config[$name])) {
             return null;
         }
+
         return $this->config[$name];
     }
 

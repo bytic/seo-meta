@@ -1,10 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\SeoMeta\Tags;
 
 /**
- * Class MetaTag
- * @package ByTIC\SeoMeta\Tags
+ * Class MetaTag.
  */
 class MetaTag extends Tag
 {
@@ -12,27 +13,20 @@ class MetaTag extends Tag
 
     protected $group = 'meta';
 
-    const NAME_TYPE = 'name';
-    const PROPERTY_TYPE = 'property';
-    const HTTP_EQUIV_TYPE = 'http-equiv';
-
+    public const NAME_TYPE = 'name';
+    public const PROPERTY_TYPE = 'property';
+    public const HTTP_EQUIV_TYPE = 'http-equiv';
 
     /**
      * @var string
      */
     protected $type = self::NAME_TYPE;
 
-    /**
-     * @return string
-     */
     public function getType(): string
     {
         return $this->type;
     }
 
-    /**
-     * @param string $type
-     */
     public function setType(string $type): void
     {
         $this->type = $type;
@@ -40,7 +34,7 @@ class MetaTag extends Tag
 
     protected function generate(): string
     {
-        return \ByTIC\Html\Tags\Tag::tag(
+        return (string) \ByTIC\Html\Tags\Tag::tag(
             $this->tag,
             null,
             $this->generateAttributes()
@@ -51,7 +45,7 @@ class MetaTag extends Tag
     {
         return [
             $this->type => $this->name,
-            'content' => $this->value
+            'content' => $this->value,
         ];
     }
 }

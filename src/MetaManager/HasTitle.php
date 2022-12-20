@@ -1,28 +1,29 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\SeoMeta\MetaManager;
 
 use ByTIC\SeoMeta\Tags\TagFactory;
+use ByTIC\SeoMeta\Tags\TagInterface;
 use ByTIC\SeoMeta\Tags\TitleTag;
 
 /**
- * Trait HasTitle
- * @package ByTIC\SeoMeta\MetaManager
+ * Trait HasTitle.
  */
 trait HasTitle
 {
-
     /**
      * @param null $value
-     * @return TitleTag|null
      */
     public function title($value = null): ?TitleTag
     {
         $tag = $this->autoInitTitle();
-        if ($value === null) {
+        if (null === $value) {
             return $tag;
         }
         $tag->setValue($value);
+
         return $tag;
     }
 
@@ -49,12 +50,12 @@ trait HasTitle
     /**
      * @return TitleTag
      */
-    protected function autoInitTitle()
+    protected function autoInitTitle(): TitleTag|TagInterface
     {
         return $this->autoInitTag(
             'title',
             function () {
-                return TagFactory::title("");
+                return TagFactory::title('');
             }
         );
     }

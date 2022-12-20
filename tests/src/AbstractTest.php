@@ -1,13 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\SeoMeta\Tests;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class AbstractTest
- * @package ByTIC\SeoMeta\Tests
+ * Class AbstractTest.
  */
 abstract class AbstractTest extends TestCase
 {

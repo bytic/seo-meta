@@ -1,30 +1,25 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\SeoMeta\Utility;
 
 use ByTIC\SeoMeta\MetaManager;
 use Nip\Container\Utility\Container;
 
 /**
- * Class SeoMeta
- * @package ByTIC\SeoMeta\Utility
+ * Class SeoMeta.
  */
 class SeoMeta
 {
     /**
-     * @param $name
-     * @param $arguments
      * @return false|mixed
      */
     public static function __callStatic($name, $arguments)
     {
-        return call_user_func_array([static::instance(), $name], $arguments);
+        return \call_user_func_array([static::instance(), $name], $arguments);
     }
 
-
-    /**
-     * @return MetaManager
-     */
     public static function instance(): MetaManager
     {
         static $instance;
@@ -34,6 +29,7 @@ class SeoMeta
         }
         if (!class_exists(Container::class)) {
             $instance = new MetaManager();
+
             return $instance;
         }
 

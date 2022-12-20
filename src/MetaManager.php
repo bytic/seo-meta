@@ -1,10 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\SeoMeta;
 
 /**
- * Class SeoMeta
- * @package ByTIC\SeoMeta
+ * Class SeoMeta.
  */
 class MetaManager
 {

@@ -1,10 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\SeoMeta\Tags;
 
 /**
- * Class LinkTag
- * @package ByTIC\SeoMeta\Tags
+ * Class LinkTag.
  */
 class LinkTag extends MetaTag
 {
@@ -13,17 +14,11 @@ class LinkTag extends MetaTag
 
     protected $attributes = [];
 
-    /**
-     * @return array
-     */
     public function getAttributes(): array
     {
         return $this->attributes;
     }
 
-    /**
-     * @param array $attributes
-     */
     public function setAttributes(array $attributes): void
     {
         $this->attributes = $attributes;

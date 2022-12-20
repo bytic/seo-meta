@@ -1,0 +1,15 @@
+
+parameters:
+    level: 0
+
+    tipsOfTheDay: false
+    treatPhpDocTypesAsCertain: false
+
+    paths:
+        - config
+        - src
+        - tests
+
+parametersSchema:
+
+conditionalTags:

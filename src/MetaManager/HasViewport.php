@@ -1,33 +1,30 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\SeoMeta\MetaManager;
 
-use ByTIC\SeoMeta\Tags\MetaTag;
-use ByTIC\SeoMeta\Tags\Tag;
 use ByTIC\SeoMeta\Tags\TagFactory;
 use ByTIC\SeoMeta\Tags\ViewportTag;
 
 /**
- * Trait viewport
- * @package ByTIC\SeoMeta\MetaManager
+ * Trait viewport.
  */
 trait HasViewport
 {
-
     /**
      * @param null $value
-     * @return ViewportTag|null
      */
     public function viewport($value = null): ?ViewportTag
     {
         $tag = $this->autoInitViewport();
-        if ($value === null) {
+        if (null === $value) {
             return $tag;
         }
         $tag->setValue($value);
+
         return $tag;
     }
-
 
     /**
      * @return ViewportTag
@@ -37,7 +34,7 @@ trait HasViewport
         return $this->autoInitTag(
             'viewport',
             function () {
-                return TagFactory::viewport("");
+                return TagFactory::viewport('');
             }
         );
     }

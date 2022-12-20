@@ -1,10 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\SeoMeta\Tags;
 
 /**
- * Class Tag
- * @package ByTIC\SeoMeta\Tags
+ * Class Tag.
  */
 abstract class Tag implements TagInterface
 {
@@ -15,32 +16,23 @@ abstract class Tag implements TagInterface
     /**
      * @var string
      */
-    protected $name = "";
+    protected $name = '';
 
     /**
      * @var string
      */
     protected $value;
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * @param string $name
-     */
     public function setName(string $name): void
     {
         $this->name = $name;
     }
 
-    /**
-     * @return string
-     */
     public function getValue(): string
     {
         return $this->value;
@@ -51,18 +43,18 @@ abstract class Tag implements TagInterface
      */
     public function setValue($value): void
     {
-        $this->value = (string)$value;
+        $this->value = (string) $value;
     }
 
     /**
      * @return null
+     *
      * @internal
      */
     public function getGroup()
     {
         return $this->group;
     }
-
 
     public function __toString(): string
     {
@@ -72,7 +64,7 @@ abstract class Tag implements TagInterface
     public function render(): string
     {
         if (empty($this->name)) {
-            return "";
+            return '';
         }
 
         return $this->generate();

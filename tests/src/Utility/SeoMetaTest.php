@@ -1,17 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\SeoMeta\Tests\Utility;
 
 use ByTIC\SeoMeta\Tests\AbstractTest;
 use ByTIC\SeoMeta\Utility\SeoMeta;
 
 /**
- * Class SeoMetaTest
- * @package ByTIC\SeoMeta\Tests\Utility
+ * Class SeoMetaTest.
  */
 class SeoMetaTest extends AbstractTest
 {
-    public function test_call_static()
+    public function testCallStatic()
     {
         SeoMeta::title('test');
         self::assertSame(
